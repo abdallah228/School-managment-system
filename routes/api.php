@@ -24,15 +24,17 @@ Route::post('register', 'Api\LoginController@register');
 Route::post('login', 'Api\LoginController@login');
 //...............logout.............
 route::get('/logout','Api\LoginController@logout')->middleware('auth:api');//logout
-//................
+//.............................
     route::group(['namespace'=>'Api\Dashboard','prefix'=>'dashboard','middleware'=>['change_lang' ,'auth:api']],function(){
-
+//.............grades..........
     route::post('/grades','GradeController@index');//show all grades
     Route::post('grades-store', 'GradeController@store');//add new grade
     route::post('grades/{id}','GradeController@show');//show single grade
     route::put('grades/update/{id}','GradeController@update');//update grade
-    route::put('grades/update/{id}','GradeController@update');//delete grade
     route::delete('grades/delete/{id}','GradeController@destroy');//delete grade
+//................ClassRoom..................................
+   // Route::apiResource('classrooms', 'ClassesRoomController');
+    Route::post('classrooms','ClassesRoomController@index');//show classesrooms
 
 
 

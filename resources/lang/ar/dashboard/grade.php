@@ -11,15 +11,16 @@ return [
 'close'=>'غلق',
 'submit'=>'حفظ',
 'grade_name_ar'=>'اسم المرحله باللغه العربيه',
+'grade_name_ar_unique'=>'اسم المرحله باللغه العربيه موجود من قبل',
 'grade_name_en'=>'اسم المرحله باللغه الانجليزيه',
+'grade_name_en_unique'=>'اسم المرحله باللغه الانجليزيه موجود من قبل',
 'grade_notes'=>'الملاحظات',
 
 
 ///////validation grades//
 'grade_name_ar'=>'الاسم باللغه العربيه مطلوب',
-'grade_name_ar_unique'=>'هذا الاسم مسجل من قبل',
 'grade_name_en'=>'الاسم باللغه الانجليزيه مطلوب',
-'grade_name_en_unique'=>'هذا الاسم مسجل من قبل',
+'grade_name_unique'=>'هذا الاسم مسجل من قبل',
 
 
 ///////////////notification toastr package......
@@ -31,6 +32,8 @@ return [
 'submit'=>'حفظ البيانات',
 'delete_grade'=>'حذف المرحله الدراسيه',
 'warning_grade'=>'هل انت متاكد من عمليه الحذف',
+'grades_cant_delete'=>'عذرا لن تتم عمليه الحذف  ! يجب ان تحذف الصفوف الدراسيه اولا',
+
 
 
 

@@ -19,12 +19,12 @@ class GradeController extends Controller
     public function index()
     {
         //
-        $grades_api = Grade::paginate(2);
+        $grades_api = Grade::all();
         return response()->json(['data'=>GradeResource::collection($grades_api),'status_code'=>200],200);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.  
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -34,6 +34,7 @@ class GradeController extends Controller
         //validation
 
         try{
+        
             $grade = new Grade();
             $grade->name = ['ar' => $request->name_ar, 'en' => $request->name_en];
             $grade->notes = $request->notes;
