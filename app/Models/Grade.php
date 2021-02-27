@@ -18,5 +18,11 @@ class Grade extends Model
     public $timestamps = true;
 
 
+ //.....relations.....
+ public function classesrooms()
+ {
+     return $this->belongsTo('App\Models\ClassesRoom','grade_id');
+ }
+
 
 }

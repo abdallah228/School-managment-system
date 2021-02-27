@@ -25,8 +25,9 @@ class GradeRequest extends FormRequest
     {
         return [
             //
-            'name_ar'=>'required|unique:grades,name,'.$this->id,
-            'name_en'=>'required|unique:grades,name,'.$this->id,
+            'name_ar'=>'required|unique:grades,name->ar,'.$this->id,
+            'name_en'=>'required|unique:grades,name->en,'.$this->id,
+            
         ];
     }
     public function messages()
@@ -37,6 +38,7 @@ class GradeRequest extends FormRequest
             'name_ar.unique'=>__('dashboard/grade.grade_name_ar_unique'),
             'name_en.required'=>__('dashboard/grade.grade_name_en'),
             'name_en.unique'=>__('dashboard/grade.grade_name_en_unique'),
+
 
         ];
         

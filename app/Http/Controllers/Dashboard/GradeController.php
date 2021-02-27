@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Grade;
 use App\http\requests\Dashboard\GradeRequest;
+use App\Models\ClassesRoom;
+
 
 class GradeController extends Controller
 {
@@ -40,10 +42,18 @@ class GradeController extends Controller
      */
     public function store(GradeRequest $request)
     {
+
+     /*   if (Grade::where('name->ar', $request->name_ar)->orWhere('name->en',$request->name_en)->exists()) {
+            return redirect()->back()->withErrors(__('dashboard/grade.grade_name_unique'));
+ 
+        }//this way for validation unique
+        */
         //validation done
+
         
        // dd($request->all());
-       try{
+     try{
+      //  $validated = $request->validated();
         $grade = new Grade();
         $grade->name = ['ar' => $request->name_ar, 'en' => $request->name_en];
         $grade->notes = $request->notes;
@@ -93,7 +103,10 @@ class GradeController extends Controller
     public function update(GradeRequest $request, $id)
     {
         //
+        //validation done
+        
         try{
+        $validation = $request->validated();
         $grade = Grade::findOrFail($id);
         $grade->update([
         'name' => ['ar' => $request->name_ar, 'en' => $request->name_en],
@@ -120,15 +133,29 @@ class GradeController extends Controller
     {
         //
        // $ide = Request()->id;
-       try{
-        $grade = Grade::findOrFail($id);
-        $grade->delete();
-        toastr()->error(__('dashboard/grade.grade_success_delete'));
-        return redirect()->route('grades.index');
-       }
-       catch(\Exception $e)
+       
+       $classes_rooms = ClassesRoom::where('grade_id',$id)->pluck('grade_id');
+       if($classes_rooms->count() > 0)
        {
-           return redirect()->back()->with(['error'=>$e->getMessage()]);
-       }
+        toastr()->error(__('dashboard/grade.grades_cant_delete'));
+        return redirect()->back();
+       }//end if
+       else{
+       
+        try{
+            $grade = Grade::findOrFail($id);
+            $grade->delete();
+            toastr()->error(__('dashboard/grade.grade_success_delete'));
+            return redirect()->route('grades.index');
+           }//end try
+           catch(\Exception $e)
+           {
+               return redirect()->back()->with(['error'=>$e->getMessage()]);
+           }//end catch
+       }//end else
+       
+     
+    
+  
     }
 }

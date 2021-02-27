@@ -84,6 +84,7 @@
                                                 <form action="{{route('grades.update',$grade->id)}}" method="post">
                                                     {{method_field('patch')}}
                                                     @csrf
+                                                    <input type="hidden" value="{{$grade->id}}">
                                                     <div class="row">
                                                         <div class="col">
                                                             <label for="name"
