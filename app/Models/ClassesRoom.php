@@ -18,5 +18,11 @@ class ClassesRoom extends Model
     public function grades()
     {
         return $this->belongsTo('App\Models\Grade','grade_id');
-    }
+    }//end relation between grades && classesrooms
+
+    public function sections()
+        {
+            return $this->hasMany('Ap\Models\Section','classes_id');
+        }//end relation between sections && classesrooms
+    
 }
