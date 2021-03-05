@@ -48,6 +48,19 @@
                         </ul>
                     </li>
                     <!-- menu item todo-->
+                    <!-- menu item sections-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
+                            <div class="pull-left"><i class="ti-pie-chart"></i><span
+                                    class="right-nav-text">{{__('dashboard/navbar.sections')}}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="chart" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('sections.index')}}">{{__('dashboard/navbar.sections_list')}}</a> </li>
+                            
+                        </ul>
+                    </li>
                     <li>
                         <a href="todo-list.html"><i class="ti-menu-alt"></i><span class="right-nav-text">Todo
                                 list</span> </a>

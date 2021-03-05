@@ -28,13 +28,15 @@ Route::group(
             Route::get('/dashboard', 'HomeController@index')->name('home');//home page after login
 
             route::group(['prefix'=>'dashboard','namespace'=>'Dashboard'],function(){
-            
+            #############grades#########
             Route::resource('grades', 'GradeController');//grades
             ###classes rooms######
             Route::resource('classes-rooms', 'ClassesRoomController');//classesrooms
             route::post('classes-rooms/delete-all','ClassesRoomController@delete_all')->name('delete_all');//delete all classesrooms
             route::post('filter-classes','ClassesRoomController@filter_classes')->name('filter_classes');//dilter classes to search by grade
-        
+        ###########sections########
+                route::resource('sections','SectionController');//sections
+                route::get('/classes/{id}','SectionController@get_classes')->name('get_classes');
 
         });
 

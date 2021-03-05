@@ -12,6 +12,10 @@ return [
 'classrooms'=>'الصفوف الدراسيه',
 'classrooms_list'=>'قائمه الصفوف الدراسيه',
 
+//...
+'sections'=>'الاقسام',
+'sections_list'=>'قائمه الاقسام',
+
 
 
 
