@@ -34,11 +34,19 @@ Route::group(
             Route::resource('classes-rooms', 'ClassesRoomController');//classesrooms
             route::post('classes-rooms/delete-all','ClassesRoomController@delete_all')->name('delete_all');//delete all classesrooms
             route::post('filter-classes','ClassesRoomController@filter_classes')->name('filter_classes');//dilter classes to search by grade
-        ###########sections########
+            ###########sections########
                 route::resource('sections','SectionController');//sections
                 route::get('/classes/{id}','SectionController@get_classes')->name('get_classes');
+            #########parents#####
+            route::view('add_parent','livewire.show-form')->name('add_parent');
 
-        });
 
-    });
+        });//end namespace  dashboard
+
+    });//end parent lang
+
+    ///test//
+    route::get('test',function(){
+        return view('dashboard.test');
+    }); 
 
