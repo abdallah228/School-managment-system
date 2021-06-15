@@ -16,6 +16,10 @@ return [
 'sections'=>'الاقسام',
 'sections_list'=>'قائمه الاقسام',
 
+//..
+'parents'=>'اولياء الامور',
+'list_parents'=>'قائمه اولياء الامور',
+'add_parents'=>'اضافه ولى امر',
 
 
 
